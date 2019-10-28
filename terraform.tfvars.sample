@@ -1,0 +1,16 @@
+project_id = "aaaa"
+org_id     = "123456"
+domain     = "domain.net"
+region     = "europe-west1"
+
+client_tags = "forseticlient"
+server_tags = "forsetiserver"
+
+network         = "default"
+subnetwork      = "default"
+network_project = ""
+
+gsuite_admin_email      = "admin@domain.net"
+sendgrid_api_key        = ""
+forseti_email_sender    = ""
+forseti_email_recipient = ""
