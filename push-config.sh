@@ -1,0 +1,1 @@
+gsutil cp forseti_conf.yaml gs://$projectid-tfstate/configs/server/forseti_server_conf.yaml
