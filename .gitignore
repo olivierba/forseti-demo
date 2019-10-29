@@ -8,3 +8,4 @@
 # Plan files
 *tfplan*
 terraform.tfvars
+env

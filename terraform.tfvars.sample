@@ -3,12 +3,13 @@ org_id     = "123456"
 domain     = "domain.net"
 region     = "europe-west1"
 
-client_tags = "forseticlient"
-server_tags = "forsetiserver"
+instance_tags = ["forseti"]
 
 network         = "default"
 subnetwork      = "default"
 network_project = ""
+
+private = true
 
 gsuite_admin_email      = "admin@domain.net"
 sendgrid_api_key        = ""
