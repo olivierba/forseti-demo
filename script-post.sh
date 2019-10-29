@@ -1,4 +1,4 @@
 #run this post install to save terraform state to a project bucket
-source env
+source env-var
 
-gsutil mb -p {{project_id}} gs://{{project_id}}-tfstate
+gsutil mb -p $projectid gs://$projectid-tfstate
