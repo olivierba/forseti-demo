@@ -1,1 +1,1 @@
-gsutil cp forseti_conf.yaml gs://$projectid-tfstate/configs/server/forseti_server_conf.yaml
+gsutil cp forseti_conf.yaml gs://$forsetibucket/configs/server/forseti_server_conf.yaml
