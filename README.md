@@ -1,41 +1,32 @@
-# Simple Installation
+# install 101
 
-This configuration is used to simply install Forseti. It includes a full Cloud Shell [tutorial](./tutorial.md).
+# pre-install
+- Create a free sendgrid account from the GCP marketplace, copy the sendgrid API key and save it somewhere safe
+- A G-Suite domain for G-suite features
+- create a bucket to store the terraform state
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/open?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fforseti-security%2Fterraform-google-forseti.git&cloudshell_git_branch=module-release-5.0.0&cloudshell_working_dir=examples/install_simple&cloudshell_image=gcr.io%2Fgraphite-cloud-shell-images%2Fterraform%3Alatest&cloudshell_tutorial=.%2Ftutorial.md)
+# installation
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Inputs
+- Init projet variable in env-var from env-var-sample and load them with source env-var
+- run terraform init, this will load the dependency and forsetti source which is used for other scripts and the rest of the deployment
+- Run script in script-pre this will init the nat gateway for a private ip deployement and provision the accounts and iam permission
+- Init terraform.tfvars from terraform.tfvars.sample
+- run terraform apply
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| domain | The domain associated with the GCP Organization ID | string | n/a | yes |
-| forseti\_email\_recipient | Forseti email recipient. | string | `""` | no |
-| forseti\_email\_sender | Forseti email sender. | string | `""` | no |
-| gsuite\_admin\_email | The email of a GSuite super admin, used for pulling user directory information *and* sending notifications. | string | n/a | yes |
-| instance\_metadata | Metadata key/value pairs to make available from within the client and server instances. | map(string) | `<map>` | no |
-| instance\_tags | Tags to assign the client and server instances. | list(string) | `<list>` | no |
-| network | The VPC where the Forseti client and server will be created | string | n/a | yes |
-| network\_project | The project containing the VPC and subnetwork where the Forseti client and server will be created | string | n/a | yes |
-| org\_id | GCP Organization ID that Forseti will have purview over | string | n/a | yes |
-| private | Private client and server instances (no public IPs) | bool | `"false"` | no |
-| project\_id | The ID of an existing Google project where Forseti will be installed | string | n/a | yes |
-| region | The region where the Forseti GCE Instance VMs and CloudSQL Instances will be deployed | string | n/a | yes |
-| sendgrid\_api\_key | Sendgrid API key. | string | `""` | no |
-| subnetwork | The VPC subnetwork where the Forseti client and server will be created | string | n/a | yes |
+# post install config
+- Create a source id in security command center
+- setup all the necessary variable in forseti_conf_server.yaml
+    -- API key
+    -- emails and domaines
+    -- bucket adresses
+- upload the file to the server bucket in /configs
+- run script-post.sh
+- edit backend.tf with the bucket you created for terraform state and uncomment the lines
+- run terraform apply
+- ssh into the forseti server compute instance
+- run /home/ubuntu/forseti-security/install/gcp/scripts/run_forseti.sh to force config reload and a first run
 
-## Outputs
+# clean up 
+- terraform destroy
+- run clean.sh
 
-| Name | Description |
-|------|-------------|
-| forseti-client-service-account | Forseti Client service account |
-| forseti-client-storage-bucket | Forseti Client storage bucket |
-| forseti-client-vm-ip | Forseti Client VM private IP address |
-| forseti-client-vm-name | Forseti Client VM name |
-| forseti-server-service-account | Forseti Server service account |
-| forseti-server-storage-bucket | Forseti Server storage bucket |
-| forseti-server-vm-ip | Forseti Server VM private IP address |
-| forseti-server-vm-name | Forseti Server VM name |
-| suffix | The random suffix appended to Forseti resources |
-
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

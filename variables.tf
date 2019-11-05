@@ -53,6 +53,11 @@ variable "sendgrid_api_key" {
   default     = ""
 }
 
+variable "csccid" {
+  description = "Cloud Security Command Center source id"
+  default     = ""
+}
+
 variable "forseti_email_sender" {
   description = "Forseti email sender."
   default     = ""

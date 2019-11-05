@@ -1,0 +1,3 @@
+To manually run forseti, you need to ssh into the server
+
+/home/ubuntu/forseti-security/install/gcp/scripts/run_forseti.sh

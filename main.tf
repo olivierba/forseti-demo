@@ -41,4 +41,12 @@ module "forseti-install-simple" {
 
   client_private = var.private
   server_private = var.private
+  cloudsql_private = var.private
+
+  cscc_source_id = var.csccid
+
+  instance_network_interface_enabled = true
+  instance_network_interface_violations_should_notify = true
+
+
 }
