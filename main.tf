@@ -54,7 +54,7 @@ module "forseti-install-simple" {
 module "real_time_enforcer_roles" {
    source = "terraform-google-modules/forseti/google//modules/real_time_enforcer_roles"
    org_id = "${var.org_id}"
-   suffix = "${module.forseti.suffix}"
+   suffix = "${module.forseti-install-simple.suffix}"
 }
 
 module "real_time_enforcer_organization_sink" {
@@ -71,5 +71,5 @@ module "real_time_enforcer_organization_sink" {
    topic                      = "${module.real_time_enforcer_organization_sink.topic}"
    enforcer_viewer_role       = "${module.real_time_enforcer_roles.forseti-rt-enforcer-viewer-role-id}"
    enforcer_writer_role       = "${module.real_time_enforcer_roles.forseti-rt-enforcer-writer-role-id}"
-   suffix                     = "${module.forseti.suffix}"
+   suffix                     = "${module.forseti-install-simple.suffix}"
 }
