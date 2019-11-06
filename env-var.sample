@@ -1,3 +1,4 @@
 projectid=myprojectidxxxxx
 orgid=myorgidxxx
-forseti-bucket=forseti-server-xxxxxxxx
+forsetibucket=forseti-server-xxxxxxxx
+forsetimodulefolder=xxxx
