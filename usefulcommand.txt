@@ -1,3 +1,7 @@
 To manually run forseti, you need to ssh into the server
 
 /home/ubuntu/forseti-security/install/gcp/scripts/run_forseti.sh
+
+To install the Terraform validator
+
+gsutil ls -r gs://terraform-validator/releases
