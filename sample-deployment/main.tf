@@ -3,7 +3,7 @@ resource "random_id" "instance_id" {
 }
 
 resource "google_compute_instance" "default" {
-  name         = "vm-${random_id.instance_id.hex}"
+  name         = "vm-mysample"
   machine_type = "f1-micro"
   zone         = "europe-west1-b"
 
