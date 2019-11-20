@@ -17,3 +17,4 @@ forseti_email_sender    = ""
 forseti_email_recipient = ""
 
 csccid = 12345656778
+git_repo = "git@github.com:myaccount/policy-library.git"

@@ -83,3 +83,8 @@ variable "subnetwork" {
 variable "network_project" {
   description = "The project containing the VPC and subnetwork where the Forseti client and server will be created"
 }
+
+variable "git_repo" {
+  description = "URL of the Git repository for policy sync"
+  default = ""
+}

@@ -58,3 +58,8 @@ output "forseti-server-storage-bucket" {
   description = "Forseti Server storage bucket"
   value       = module.forseti-install-simple.forseti-server-storage-bucket
 }
+
+output "forseti-server-git-public-key-openssh" {
+  description = "The public OpenSSH key generated to allow the Forseti Server to clone the policy library repository."
+  value       = module.forseti-install-simple.forseti-server-git-public-key-openssh
+}

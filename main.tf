@@ -44,10 +44,13 @@ module "forseti-install-simple" {
   cloudsql_private = var.private
 
   cscc_source_id = var.csccid
+  cscc_violations_enabled = true
 
   instance_network_interface_enabled = true
   instance_network_interface_violations_should_notify = true
 
+  policy_library_sync_enabled = true
+  policy_library_repository_url = git@github.com:olivierba/policy-library.git
 
 }
 
