@@ -16,5 +16,5 @@ sendgrid_api_key        = ""
 forseti_email_sender    = ""
 forseti_email_recipient = ""
 
-csccid = 12345656778
+csccid = organizations/12345656778/sources/1234567
 git_repo = "git@github.com:myaccount/policy-library.git"

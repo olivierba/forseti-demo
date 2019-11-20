@@ -51,6 +51,8 @@ module "forseti-install-simple" {
 
   policy_library_sync_enabled = true
   policy_library_repository_url = var.git_repo
+  config_validator_enabled = true
+  config_validator_violations_should_notify = true
 
 }
 
