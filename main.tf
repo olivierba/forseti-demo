@@ -50,7 +50,7 @@ module "forseti-install-simple" {
   instance_network_interface_violations_should_notify = true
 
   policy_library_sync_enabled = true
-  policy_library_repository_url = git@github.com:olivierba/policy-library.git
+  policy_library_repository_url = var.git_repo
 
 }
 
