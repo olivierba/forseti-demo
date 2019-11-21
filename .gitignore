@@ -10,3 +10,6 @@
 terraform.tfvars
 env
 env-var
+
+#the config file that may be downloaded post install, not to be committed (config data)
+forseti_conf_server.yaml
